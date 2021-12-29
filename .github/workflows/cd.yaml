@@ -3,12 +3,18 @@ name: CD
 on: [push]
 
 jobs:
-  lint:
-    name: CI
+  deploy:
+    name: CD
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
           node-version: "16"
+
+      - name: setup git config
+        run: |
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "<>"
+
       - run: yarn && yarn deploy

@@ -1,45 +1,16 @@
 {
   "name": "timero",
-  "version": "0.1.0",
-  "private": false,
-  "homepage": "http://UltiRequiem.github.io/timero",
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^12.0.0",
-    "@testing-library/user-event": "^13.2.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-scripts": "5.0.0",
-    "web-vitals": "^2.1.0"
-  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:UltiRequiem/timero.git",
+  "author": "Eliaz Bobadilla <eliaz.bobadilladev@gmail.com>",
+  "license": "MIT",
   "scripts": {
-    "start": "react-scripts start",
-    "lint": "eslint src/",
-    "predeploy": "yarn build",
-    "deploy": "gh-pages -d build",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "start": "live-server .",
+    "format": "prettier --write ."
   },
   "devDependencies": {
-    "gh-pages": "^3.2.3"
+    "live-server": "^1.2.1",
+    "prettier": "^2.5.1"
   }
 }

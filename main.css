@@ -7,7 +7,7 @@
 }
 
 body {
-  font-family: "Tangerine", serif;
+  font-family: "Roboto", serif;
   font-size: 18px;
 }
 
@@ -30,7 +30,7 @@ body {
   grid-area: header;
   background-color: var(--bg-color);
   margin-bottom: 5%;
-  padding: 8%;
+  padding: 5%;
 }
 
 #app > main {
@@ -39,7 +39,7 @@ body {
 
 #app > main > .input {
   margin: 3%;
-  border-radius: 2%;
+  border-radius: 150px;
   padding: 5%;
   background-color: var(--bg-color);
 }
@@ -49,13 +49,15 @@ body {
   border: none;
   margin: auto;
   width: 50%;
-  margin-top: 10%;
-  border-radius: 15%;
+  margin-top: 5%;
+  border-radius: 15px;
   padding: 5%;
 }
 
 #app > main > .results {
   margin: 10%;
+  border-radius: 150px;
+  padding: 5%;
   background-color: grey;
 }
 

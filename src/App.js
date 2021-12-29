@@ -1,29 +1,32 @@
 import { useState, useEffect } from "react";
+// eslint-disable-next-line no-unused-vars
 import timeZones from "./timeZones";
+
+const parseTime = (date, timeZone) => {
+  try {
+    return date
+      .toLocaleString("en-US", {
+        timeZone,
+      })
+      .split(",");
+  } catch {
+    return ["", ""];
+  }
+};
 
 export default function App() {
   const [timeZone, setTimeZone] = useState("America/Lima");
 
-  const parseTime = (date) => {
-    try {
-      return date
-        .toLocaleString("en-US", {
-          timeZone,
-        })
-        .split(",");
-    } catch {
-      return ["", ""];
-    }
-  };
-
-  const [time, setTime] = useState(parseTime(new Date()));
+  const [[slashDate, hourDate], setTime] = useState(
+    parseTime(new Date(), timeZone)
+  );
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setTime(parseTime(new Date()));
+      setTime(parseTime(new Date(), timeZone));
     }, 1000);
     return () => clearInterval(interval);
-  }, [parseTime]);
+  }, [timeZone]);
 
   return (
     <>
@@ -40,8 +43,8 @@ export default function App() {
           />
         </div>
 
-        <p>{time[0]}</p>
-        <p>{time[1]}</p>
+        <p>{slashDate}</p>
+        <p>{hourDate}</p>
       </main>
 
       <footer>

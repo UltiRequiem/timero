@@ -349,4 +349,7 @@ const timeZones = [
   "Pacific/Wallis",
 ];
 
+export const randomTZ =
+  timeZones[Math.floor(Math.random() * timeZones.length)].split("/")[1];
+
 export default timeZones;

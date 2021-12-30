@@ -16,3 +16,8 @@ export function formatInput(input) {
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(" ");
 }
+
+export default function parseInput(input) {
+  const match = findSimilarTZ(formatInput(input));
+  return match ? [match, ...getDateHourFormatted(match)] : null;
+}

@@ -7,9 +7,13 @@ const input = document.getElementById("time-zone");
 
 input.value = randomTZ;
 
-function main() {
-  const data = parseInput(input.value);
+let data = parseInput(input.value);
 
+input.addEventListener("input", () => {
+  data = parseInput(input.value);
+});
+
+function main() {
   if (!data) return;
 
   resultBoxes.forEach((item, index) => {

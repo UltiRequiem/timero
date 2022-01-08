@@ -1,6 +1,5 @@
 import { randomTZ } from "./timezones.js";
-
-import parseInput, { formatInput } from "./utils.js";
+import parseInput, { formatInput, findSimilarTZ } from "./utils.js";
 
 const [resultsContainers] = document.getElementsByClassName("results");
 const resultBoxes = [...resultsContainers.children];
@@ -8,17 +7,16 @@ const input = document.getElementById("time-zone");
 
 input.value = formatInput(randomTZ);
 
+let data = input.value;
+let date = new Date(input.value);
+let renderData = parseInput(data);
+
 input.addEventListener("input", () => {
-  data = formatInput(input.value);
+  data = findSimilarTZ(formatInput(input.value));
+  date = new Date(findSimilarTZ(data));
 });
 
-let data = input.value;
-
 function main() {
-  if (!data) return;
-
-  const renderData = parseInput(data);
-
   resultBoxes.forEach((item, index) => {
     item.textContent = renderData[index];
   });

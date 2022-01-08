@@ -1,0 +1,7 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "lib": ["dom", "esnext", "dom.iterable"],
+    "strict": true
+  }
+}

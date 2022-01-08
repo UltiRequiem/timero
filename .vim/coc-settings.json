@@ -1,0 +1,8 @@
+{
+  "deno.enable": true,
+  "deno.lint": true,
+  "deno.unstable": true,
+  "deno.config": "./deno.json",
+  "prettier.disableLanguages": ["javascript", "typescript"],
+  "tsserver.enable": false
+}

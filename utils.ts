@@ -8,7 +8,6 @@ export function findSimilarTZ(customTZ: string) {
   return item;
 }
 
-
 export function dateHourFormatted(date: Date, timeZone: string) {
   return date.toLocaleString("en-US", { timeZone }).split(",");
 }

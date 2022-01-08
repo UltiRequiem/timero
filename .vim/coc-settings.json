@@ -3,6 +3,10 @@
   "deno.lint": true,
   "deno.unstable": true,
   "deno.config": "./deno.json",
-  "prettier.disableLanguages": ["javascript", "typescript"],
+  "prettier.disableLanguages": [
+    "typescript",
+    "markdown",
+    "json"
+  ],
   "tsserver.enable": false
 }

@@ -1,7 +1,9 @@
 import timeZones from "./timezones.js";
+import { Fuse } from "./deps.js";
 
 export function findSimilarTZ(customTZ) {
-  return timeZones.find((tz) => tz.includes(customTZ.replace(/\s/g, "_")));
+  const fuse = new Fuse(timeZones);
+  return fuse.search(customTZ)[0].item;
 }
 
 export function getDateHourFormatted(timeZone) {
@@ -11,6 +13,8 @@ export function getDateHourFormatted(timeZone) {
 export function formatInput(input) {
   return input
     .toLowerCase()
+    .replace("_", "")
+    .replace("-", "")
     .trim()
     .split(/\s/g)
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
@@ -18,6 +22,6 @@ export function formatInput(input) {
 }
 
 export default function parseInput(input) {
-  const match = findSimilarTZ(formatInput(input));
-  return match ? [match, ...getDateHourFormatted(match)] : null;
+  const match = findSimilarTZ(input);
+  return match ? [match, ...getDateHourFormatted(match)] : undefined;
 }

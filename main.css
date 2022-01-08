@@ -54,7 +54,7 @@ body {
   padding: 5%;
 }
 
-#app > main > .results {
+#app > main > #results {
   margin: 10%;
   border-radius: 150px;
   padding: 5%;

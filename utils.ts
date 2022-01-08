@@ -1,7 +1,8 @@
-import { timeZones } from "./deps.ts";
-import { Fuse } from "./deps.ts";
+import { Fuse, randomTimeZone, timeZones } from "./deps.ts";
 
 const fuse = new Fuse(timeZones);
+
+export const randomTZ = randomTimeZone();
 
 export function findSimilarTZ(customTZ: string) {
   const [{ item }] = fuse.search(customTZ);
@@ -21,8 +22,4 @@ export function formatInput(input: string) {
     .split(/\s/g)
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(" ");
-}
-
-export default function parseInput(timezone: Date, date: string) {
-  return [timezone, ...dateHourFormatted(timezone, date)];
 }

@@ -1,7 +1,7 @@
-import tz from "./timezones.ts";
+import { timeZones } from "./deps.ts";
 import { Fuse } from "./deps.ts";
 
-const fuse = new Fuse(tz);
+const fuse = new Fuse(timeZones);
 
 export function findSimilarTZ(customTZ: string) {
   const [{ item }] = fuse.search(customTZ);

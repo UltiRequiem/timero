@@ -1631,8 +1631,8 @@
   var randomTZ = randomTimeZone();
 
   // deno:file:///home/runner/work/timero/timero/index.ts
-  var resultsContainers = document.getElementById("results");
-  var resultBoxes = [...resultsContainers.children];
+  var { children } = document.getElementById("results");
+  var resultBoxes = [...children];
   var input = document.getElementById("time-zone");
   input.value = randomTZ;
   input.addEventListener("input", () => {

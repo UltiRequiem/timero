@@ -1268,6 +1268,7 @@
   {
     register(ExtendedSearch);
   }
+  var fuse_esm_default = Fuse;
 
   // deno:https://deno.land/x/timezones@v1.0.0/mod.js
   var timeZones = [
@@ -1623,10 +1624,16 @@
   function randomTimeZone() {
     return timeZones[Math.floor(Math.random() * timeZones.length)];
   }
+  var mod_default = timeZones;
+
+  // deno:file:///home/runner/work/timero/timero/utils.ts
+  var fuse = new fuse_esm_default(mod_default);
+  var randomTZ = randomTimeZone();
 
   // deno:file:///home/runner/work/timero/timero/index.ts
+  var resultsContainers = document.getElementById("results");
+  var resultBoxes = [...resultsContainers.children];
   var input = document.getElementById("time-zone");
-  var randomTZ = randomTimeZone();
   input.value = randomTZ;
   input.addEventListener("input", () => {
   });

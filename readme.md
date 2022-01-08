@@ -1,16 +1,20 @@
 # Timero
 
-See the time in a custom time zone.
+Webapp to see what time is in any timezone.
 
-Deployed using GitHub Pages:
+## Deploy
 
 https://ultirequiem.github.io/timero
 
-## Features
+## Characteristic
 
 - Responsive Design
 
-- Vanilla JavaScript
+- Uses [Packup](https://packup.deno.dev) as Bundler
+
+- Written in TypeScript
+
+- CI and CD
 
 ## License
 

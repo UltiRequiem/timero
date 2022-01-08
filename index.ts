@@ -1,8 +1,7 @@
 import { randomTZ } from "./utils.ts";
 
-const resultsContainers = document.getElementById("results")!;
-// deno-lint-ignore no-unused-vars
-const resultBoxes = [...resultsContainers.children];
+const { children } = document.getElementById("results")!;
+const resultBoxes = [...children];
 const input = <HTMLInputElement> document.getElementById("time-zone")!;
 
 input.value = randomTZ;

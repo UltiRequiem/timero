@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+}
+
+:root {
+  --bg-color: lightblue;
+}
+
+body {
+  font-family: "Roboto", serif;
+  font-size: 20px;
+}
+
+#app {
+  height: 100vh;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+
+  text-align: center;
+}
+
+#app > header {
+  grid-area: header;
+  background-color: var(--bg-color);
+  margin-bottom: 5%;
+  padding: 5%;
+}
+
+#app > main {
+  grid-area: main;
+}
+
+#app > main > .input {
+  margin: 3%;
+  border-radius: 150px;
+  padding: 5%;
+  background-color: var(--bg-color);
+}
+
+#app > main > .input input {
+  display: block;
+  border: none;
+  margin: auto;
+  width: 50%;
+  margin-top: 5%;
+  border-radius: 15px;
+  padding: 5%;
+}
+
+#app > main > .results {
+  margin: 10%;
+  border-radius: 150px;
+  padding: 5%;
+  background-color: grey;
+}
+
+#app > footer {
+  background-color: var(--bg-color);
+  grid-area: footer;
+  padding: 5%;
+}

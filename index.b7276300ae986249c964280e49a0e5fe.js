@@ -1628,23 +1628,27 @@
 
   // deno:file:///home/runner/work/timero/timero/utils.ts
   var fuse = new fuse_esm_default(mod_default);
-  var [technicalRandomTZ, randomTZ] = (() => {
-    const randtz = randomTimeZone();
-    return [randtz, randtz.split("/")[1]];
-  })();
-  function findSimilarTZ(customTZ) {
+  var initialTimeZone = randomTimeZone();
+  function fuzzyFindTZ(customTZ) {
     const [{ item }] = fuse.search(customTZ);
     return item;
   }
-  function dateHourFormatted(date2, timeZone) {
-    return date2.toLocaleString("en-US", { timeZone }).split(",");
+  function dateHourFormatted(date2, timeZone2) {
+    return date2.toLocaleString("en-US", { timeZone: timeZone2 }).split(",");
+  }
+  function parseDate(date2, timeZone2) {
+    return [timeZone2, ...dateHourFormatted(date2, timeZone2)];
   }
 
   // deno:file:///home/runner/work/timero/timero/index.ts
   var { children } = document.getElementById("results");
   var input = document.getElementById("time-zone");
-  input.value = randomTZ;
+  var timeZone = initialTimeZone;
+  input.value = timeZone.split("/")[1];
   input.addEventListener("input", () => {
+    if (!input.value)
+      return;
+    timeZone = fuzzyFindTZ(input.value);
   });
   var date = new Proxy(new Date(), {
     get(target, property) {
@@ -1653,12 +1657,10 @@
     }
   });
   function updateDOM(date2) {
-    const data = [technicalRandomTZ, ...dateHourFormatted(date2, findSimilarTZ(randomTZ))];
+    const data = parseDate(date2, timeZone);
     for (let index = 0; index < children.length; index++) {
       children[index].textContent = data[index];
     }
   }
-  setInterval(() => {
-    date.setSeconds(date.getSeconds() + 1);
-  }, 1e3);
+  setInterval(() => date.setSeconds(date.getSeconds() + 1), 1e3);
 })();

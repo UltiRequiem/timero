@@ -1628,16 +1628,37 @@
 
   // deno:file:///home/runner/work/timero/timero/utils.ts
   var fuse = new fuse_esm_default(mod_default);
-  var randomTZ = randomTimeZone();
+  var [technicalRandomTZ, randomTZ] = (() => {
+    const randtz = randomTimeZone();
+    return [randtz, randtz.split("/")[1]];
+  })();
+  function findSimilarTZ(customTZ) {
+    const [{ item }] = fuse.search(customTZ);
+    return item;
+  }
+  function dateHourFormatted(date2, timeZone) {
+    return date2.toLocaleString("en-US", { timeZone }).split(",");
+  }
 
   // deno:file:///home/runner/work/timero/timero/index.ts
   var { children } = document.getElementById("results");
-  var resultBoxes = [...children];
   var input = document.getElementById("time-zone");
   input.value = randomTZ;
   input.addEventListener("input", () => {
   });
-  function main() {
+  var date = new Proxy(new Date(), {
+    get(target, property) {
+      updateDOM(target);
+      return property in target ? target[property].bind(target) : void 0;
+    }
+  });
+  function updateDOM(date2) {
+    const data = [technicalRandomTZ, ...dateHourFormatted(date2, findSimilarTZ(randomTZ))];
+    for (let index = 0; index < children.length; index++) {
+      children[index].textContent = data[index];
+    }
   }
-  setInterval(main, 1e3);
+  setInterval(() => {
+    date.setSeconds(date.getSeconds() + 1);
+  }, 1e3);
 })();

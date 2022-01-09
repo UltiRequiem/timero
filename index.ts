@@ -1,13 +1,31 @@
-import { randomTZ } from "./utils.ts";
+import {
+  dateHourFormatted,
+  findSimilarTZ,
+  randomTZ,
+  technicalRandomTZ,
+} from "./utils.ts";
 
 const { children } = document.getElementById("results")!;
-const resultBoxes = [...children];
 const input = <HTMLInputElement> document.getElementById("time-zone")!;
 
 input.value = randomTZ;
 
 input.addEventListener("input", () => {});
 
-function main() {}
+const date = new Proxy(new Date(), {
+  get(target, property) {
+    updateDOM(target);
+    return property in target ? target[property].bind(target) : undefined;
+  },
+});
 
-setInterval(main, 1000);
+function updateDOM(date: Date) {
+  const data = [technicalRandomTZ, ...dateHourFormatted(date, findSimilarTZ(randomTZ))];
+  for (let index = 0; index < children.length; index++) {
+    children[index].textContent = data[index];
+  }
+}
+
+setInterval(() => {
+  date.setSeconds(date.getSeconds() + 1);
+}, 1000);

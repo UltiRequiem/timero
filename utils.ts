@@ -2,7 +2,10 @@ import { Fuse, randomTimeZone, timeZones } from "./deps.ts";
 
 const fuse = new Fuse(timeZones);
 
-export const randomTZ = randomTimeZone();
+export const [technicalRandomTZ, randomTZ] = (() => {
+  const randtz = randomTimeZone();
+  return [randtz, randtz.split("/")[1]];
+})();
 
 export function findSimilarTZ(customTZ: string) {
   const [{ item }] = fuse.search(customTZ);

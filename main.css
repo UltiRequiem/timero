@@ -37,10 +37,17 @@ body {
   grid-area: main;
 }
 
+#app > main > .buttons button {
+  margin: 5%;
+  border-radius: 10px;
+  border: medium none lightblue;
+  padding: 10px;
+}
+
 #app > main > .input {
   margin: 3%;
   border-radius: 150px;
-  padding: 5%;
+  padding: 2%;
   background-color: var(--bg-color);
 }
 
@@ -48,14 +55,16 @@ body {
   display: block;
   border: none;
   margin: auto;
-  width: 50%;
-  margin-top: 5%;
+  width: 70%;
+  text-align: center;
+  margin-top: 3%;
   border-radius: 15px;
-  padding: 5%;
+  padding: 3%;
 }
 
 #app > main > #results {
   margin: 10%;
+  margin-bottom: 1%;
   border-radius: 150px;
   padding: 5%;
   background-color: grey;

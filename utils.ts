@@ -1,8 +1,6 @@
-import { Fuse, randomTimeZone, timeZones } from "./deps.ts";
+import { Fuse, timeZones } from "./deps.ts";
 
 const fuse = new Fuse(timeZones);
-
-export const initialTimeZone = randomTimeZone();
 
 export function fuzzyFindTZ(customTZ: string) {
   const [{ item }] = fuse.search(customTZ);

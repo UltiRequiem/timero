@@ -1,9 +1,13 @@
-import { fuzzyFindTZ, initialTimeZone, parseDate } from "./utils.ts";
+import { fuzzyFindTZ, parseDate } from "./utils.ts";
+import { copy, randomTimeZone } from "./deps.ts";
 
 const { children } = document.getElementById("results")!;
 const input = <HTMLInputElement> document.getElementById("time-zone")!;
+const shareButton = <HTMLButtonElement> document.getElementById("shareTZ");
+const randomTZButton = <HTMLButtonElement> document.getElementById("randomTZ");
 
-let timeZone = initialTimeZone;
+const tzQuery = new URLSearchParams(window.location.search).get("tz");
+let timeZone = tzQuery ? fuzzyFindTZ(tzQuery) : randomTimeZone();
 input.value = timeZone.split("/")[1];
 
 input.addEventListener("input", () => {
@@ -24,5 +28,17 @@ function updateDOM(date: Date) {
     children[index].textContent = data[index];
   }
 }
+
+shareButton.onclick = () => {
+  const url = new URLSearchParams(window.location.search);
+  url.set("tz", timeZone);
+  copy(`${window.location.href}?${url.toString()}`);
+  alert("Copied to clipboard!");
+};
+
+randomTZButton.onclick = () => {
+  timeZone = randomTimeZone();
+  input.value = timeZone.split("/")[1];
+};
 
 setInterval(() => date.setSeconds(date.getSeconds() + 1), 1000);

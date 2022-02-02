@@ -12,6 +12,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: denoland/setup-deno@v1
       - run: |
+          rm deno.json
           deno run -A https://deno.land/x/packup@v0.1.12/install.ts
           packup build index.html
       - name: Deploy

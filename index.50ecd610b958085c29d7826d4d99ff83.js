@@ -1,4 +1,10 @@
 (() => {
+  var __require = (x2) => {
+    if (typeof require !== "undefined")
+      return require(x2);
+    throw new Error('Dynamic require of "' + x2 + '" is not supported');
+  };
+
   // deno:https://deno.land/x/fuse@v6.4.1/dist/fuse.esm.js
   function isArray(value) {
     return !Array.isArray ? getTag(value) === "[object Array]" : Array.isArray(value);
@@ -118,8 +124,8 @@
           list.push(toString(value));
         } else if (isArray(value)) {
           arr = true;
-          for (let i = 0, len = value.length; i < len; i += 1) {
-            deepGet(value[i], path2, index + 1);
+          for (let i2 = 0, len = value.length; i2 < len; i2 += 1) {
+            deepGet(value[i2], path2, index + 1);
           }
         } else if (path2.length) {
           deepGet(value, path2, index + 1);
@@ -222,8 +228,8 @@
     }
     removeAt(idx) {
       this.records.splice(idx, 1);
-      for (let i = idx, len = this.size(); i < len; i += 1) {
-        this.records[i].i -= 1;
+      for (let i2 = idx, len = this.size(); i2 < len; i2 += 1) {
+        this.records[i2].i -= 1;
       }
     }
     getValueForItemAtKeyId(item, keyId) {
@@ -266,9 +272,9 @@
               };
               subRecords.push(subRecord);
             } else if (isArray(value2)) {
-              value2.forEach((item, k) => {
+              value2.forEach((item, k2) => {
                 stack.push({
-                  nestedArrIndex: k,
+                  nestedArrIndex: k2,
                   value: item
                 });
               });
@@ -354,21 +360,21 @@
     let indices = [];
     let start = -1;
     let end = -1;
-    let i = 0;
-    for (let len = matchmask.length; i < len; i += 1) {
-      let match = matchmask[i];
+    let i2 = 0;
+    for (let len = matchmask.length; i2 < len; i2 += 1) {
+      let match = matchmask[i2];
       if (match && start === -1) {
-        start = i;
+        start = i2;
       } else if (!match && start !== -1) {
-        end = i - 1;
+        end = i2 - 1;
         if (end - start + 1 >= minMatchCharLength) {
           indices.push([start, end]);
         }
         start = -1;
       }
     }
-    if (matchmask[i - 1] && i - start >= minMatchCharLength) {
-      indices.push([start, i - 1]);
+    if (matchmask[i2 - 1] && i2 - start >= minMatchCharLength) {
+      indices.push([start, i2 - 1]);
     }
     return indices;
   }
@@ -403,10 +409,10 @@
       currentThreshold = Math.min(score, currentThreshold);
       bestLocation = index + patternLen;
       if (computeMatches) {
-        let i = 0;
-        while (i < patternLen) {
-          matchMask[index + i] = 1;
-          i += 1;
+        let i2 = 0;
+        while (i2 < patternLen) {
+          matchMask[index + i2] = 1;
+          i2 += 1;
         }
       }
     }
@@ -415,12 +421,12 @@
     let finalScore = 1;
     let binMax = patternLen + textLen;
     const mask = 1 << patternLen - 1;
-    for (let i = 0; i < patternLen; i += 1) {
+    for (let i2 = 0; i2 < patternLen; i2 += 1) {
       let binMin = 0;
       let binMid = binMax;
       while (binMin < binMid) {
         const score2 = computeScore(pattern, {
-          errors: i,
+          errors: i2,
           currentLocation: expectedLocation + binMid,
           expectedLocation,
           distance,
@@ -437,7 +443,7 @@
       let start = Math.max(1, expectedLocation - binMid + 1);
       let finish = findAllMatches ? textLen : Math.min(expectedLocation + binMid, textLen) + patternLen;
       let bitArr = Array(finish + 2);
-      bitArr[finish + 1] = (1 << i) - 1;
+      bitArr[finish + 1] = (1 << i2) - 1;
       for (let j = finish; j >= start; j -= 1) {
         let currentLocation = j - 1;
         let charMatch = patternAlphabet[text.charAt(currentLocation)];
@@ -445,12 +451,12 @@
           matchMask[currentLocation] = +!!charMatch;
         }
         bitArr[j] = (bitArr[j + 1] << 1 | 1) & charMatch;
-        if (i) {
+        if (i2) {
           bitArr[j] |= (lastBitArr[j + 1] | lastBitArr[j]) << 1 | 1 | lastBitArr[j + 1];
         }
         if (bitArr[j] & mask) {
           finalScore = computeScore(pattern, {
-            errors: i,
+            errors: i2,
             currentLocation,
             expectedLocation,
             distance,
@@ -467,7 +473,7 @@
         }
       }
       const score = computeScore(pattern, {
-        errors: i + 1,
+        errors: i2 + 1,
         currentLocation: expectedLocation,
         expectedLocation,
         distance,
@@ -494,9 +500,9 @@
   }
   function createPatternAlphabet(pattern) {
     let mask = {};
-    for (let i = 0, len = pattern.length; i < len; i += 1) {
-      const char = pattern.charAt(i);
-      mask[char] = (mask[char] || 0) | 1 << len - i - 1;
+    for (let i2 = 0, len = pattern.length; i2 < len; i2 += 1) {
+      const char = pattern.charAt(i2);
+      mask[char] = (mask[char] || 0) | 1 << len - i2 - 1;
     }
     return mask;
   }
@@ -535,12 +541,12 @@
       };
       const len = this.pattern.length;
       if (len > MAX_BITS) {
-        let i = 0;
+        let i2 = 0;
         const remainder = len % MAX_BITS;
         const end = len - remainder;
-        while (i < end) {
-          addChunk(this.pattern.substr(i, MAX_BITS), i);
-          i += MAX_BITS;
+        while (i2 < end) {
+          addChunk(this.pattern.substr(i2, MAX_BITS), i2);
+          i2 += MAX_BITS;
         }
         if (remainder) {
           const startIndex = len - MAX_BITS;
@@ -835,8 +841,8 @@
     return pattern.split(OR_TOKEN).map((item) => {
       let query = item.trim().split(SPACE_RE).filter((item2) => item2 && !!item2.trim());
       let results = [];
-      for (let i = 0, len = query.length; i < len; i += 1) {
-        const queryItem = query[i];
+      for (let i2 = 0, len = query.length; i2 < len; i2 += 1) {
+        const queryItem = query[i2];
         let found = false;
         let idx = -1;
         while (!found && ++idx < searchersLen) {
@@ -903,8 +909,8 @@
       let numMatches = 0;
       let allIndices = [];
       let totalScore = 0;
-      for (let i = 0, qLen = query.length; i < qLen; i += 1) {
-        const searchers2 = query[i];
+      for (let i2 = 0, qLen = query.length; i2 < qLen; i2 += 1) {
+        const searchers2 = query[i2];
         allIndices.length = 0;
         numMatches = 0;
         for (let j = 0, pLen = searchers2.length; j < pLen; j += 1) {
@@ -950,8 +956,8 @@
     registeredSearchers.push(...args);
   }
   function createSearcher(pattern, options) {
-    for (let i = 0, len = registeredSearchers.length; i < len; i += 1) {
-      let searcherClass = registeredSearchers[i];
+    for (let i2 = 0, len = registeredSearchers.length; i2 < len; i2 += 1) {
+      let searcherClass = registeredSearchers[i2];
       if (searcherClass.condition(pattern, options)) {
         return new searcherClass(pattern, options);
       }
@@ -1042,11 +1048,11 @@
     }
     remove(predicate = () => false) {
       const results = [];
-      for (let i = 0, len = this._docs.length; i < len; i += 1) {
-        const doc = this._docs[i];
-        if (predicate(doc, i)) {
-          this.removeAt(i);
-          i -= 1;
+      for (let i2 = 0, len = this._docs.length; i2 < len; i2 += 1) {
+        const doc = this._docs[i2];
+        if (predicate(doc, i2)) {
+          this.removeAt(i2);
+          i2 -= 1;
           results.push(doc);
         }
       }
@@ -1123,8 +1129,8 @@
         switch (node.operator) {
           case LogicalOperator.AND: {
             const res = [];
-            for (let i = 0, len = node.children.length; i < len; i += 1) {
-              const child = node.children[i];
+            for (let i2 = 0, len = node.children.length; i2 < len; i2 += 1) {
+              const child = node.children[i2];
               const result = evaluate(child, item, idx);
               if (result.length) {
                 res.push(...result);
@@ -1136,8 +1142,8 @@
           }
           case LogicalOperator.OR: {
             const res = [];
-            for (let i = 0, len = node.children.length; i < len; i += 1) {
-              const child = node.children[i];
+            for (let i2 = 0, len = node.children.length; i2 < len; i2 += 1) {
+              const child = node.children[i2];
               const result = evaluate(child, item, idx);
               if (result.length) {
                 res.push(...result);
@@ -1269,6 +1275,116 @@
     register(ExtendedSearch);
   }
   var fuse_esm_default = Fuse;
+
+  // deno:https://cdn.esm.sh/v64/toggle-selection@1.0.6/deno/toggle-selection.js
+  var s = Object.create;
+  var o = Object.defineProperty;
+  var g = Object.getOwnPropertyDescriptor;
+  var i = Object.getOwnPropertyNames;
+  var m = Object.getPrototypeOf;
+  var d = Object.prototype.hasOwnProperty;
+  var p = (e) => o(e, "__esModule", { value: true });
+  var v = (e, t) => () => (t || e((t = { exports: {} }).exports, t), t.exports);
+  var A = (e, t, r, n) => {
+    if (t && typeof t == "object" || typeof t == "function")
+      for (let a of i(t))
+        !d.call(e, a) && (r || a !== "default") && o(e, a, { get: () => t[a], enumerable: !(n = g(t, a)) || n.enumerable });
+    return e;
+  };
+  var c = (e, t) => A(p(o(e != null ? s(m(e)) : {}, "default", !t && e && e.__esModule ? { get: () => e.default, enumerable: true } : { value: e, enumerable: true })), e);
+  var u = v((b, f2) => {
+    f2.exports = function() {
+      var e = document.getSelection();
+      if (!e.rangeCount)
+        return function() {
+        };
+      for (var t = document.activeElement, r = [], n = 0; n < e.rangeCount; n++)
+        r.push(e.getRangeAt(n));
+      switch (t.tagName.toUpperCase()) {
+        case "INPUT":
+        case "TEXTAREA":
+          t.blur();
+          break;
+        default:
+          t = null;
+          break;
+      }
+      return e.removeAllRanges(), function() {
+        e.type === "Caret" && e.removeAllRanges(), e.rangeCount || r.forEach(function(a) {
+          e.addRange(a);
+        }), t && t.focus();
+      };
+    };
+  });
+  var l = c(u());
+  var C = c(u());
+  var { default: R, ...E } = C;
+  var h = l.default ?? R ?? E;
+
+  // deno:https://cdn.esm.sh/v64/copy-to-clipboard@3.3.1/deno/copy-to-clipboard.js
+  var w = Object.create;
+  var u2 = Object.defineProperty;
+  var D = Object.getOwnPropertyDescriptor;
+  var v2 = Object.getOwnPropertyNames;
+  var C2 = Object.getPrototypeOf;
+  var x = Object.prototype.hasOwnProperty;
+  var h2 = (t) => u2(t, "__esModule", { value: true });
+  var E2 = ((t) => typeof __require != "undefined" ? __require : typeof Proxy != "undefined" ? new Proxy(t, { get: (e, r) => (typeof __require != "undefined" ? __require : e)[r] }) : t)(function(t) {
+    if (typeof __require != "undefined")
+      return __require.apply(this, arguments);
+    throw new Error('Dynamic require of "' + t + '" is not supported');
+  });
+  var S = (t, e) => () => (e || t((e = { exports: {} }).exports, e), e.exports);
+  var k = (t, e, r, n) => {
+    if (e && typeof e == "object" || typeof e == "function")
+      for (let l2 of v2(e))
+        !x.call(t, l2) && (r || l2 !== "default") && u2(t, l2, { get: () => e[l2], enumerable: !(n = D(e, l2)) || n.enumerable });
+    return t;
+  };
+  var p2 = (t, e) => k(h2(u2(t != null ? w(C2(t)) : {}, "default", !e && t && t.__esModule ? { get: () => t.default, enumerable: true } : { value: t, enumerable: true })), t);
+  var f = S((q, y) => {
+    "use strict";
+    var R2 = h, m2 = { "text/plain": "Text", "text/html": "Url", default: "Text" }, U = "Copy to clipboard: #{key}, Enter";
+    function $(t) {
+      var e = (/mac os x/i.test(navigator.userAgent) ? "\u2318" : "Ctrl") + "+C";
+      return t.replace(/#{\s*key\s*}/g, e);
+    }
+    function I(t, e) {
+      var r, n, l2, s2, c2, a, d2 = false;
+      e || (e = {}), r = e.debug || false;
+      try {
+        l2 = R2(), s2 = document.createRange(), c2 = document.getSelection(), a = document.createElement("span"), a.textContent = t, a.style.all = "unset", a.style.position = "fixed", a.style.top = 0, a.style.clip = "rect(0, 0, 0, 0)", a.style.whiteSpace = "pre", a.style.webkitUserSelect = "text", a.style.MozUserSelect = "text", a.style.msUserSelect = "text", a.style.userSelect = "text", a.addEventListener("copy", function(o2) {
+          if (o2.stopPropagation(), e.format)
+            if (o2.preventDefault(), typeof o2.clipboardData == "undefined") {
+              r && console.warn("unable to use e.clipboardData"), r && console.warn("trying IE specific stuff"), window.clipboardData.clearData();
+              var i2 = m2[e.format] || m2.default;
+              window.clipboardData.setData(i2, t);
+            } else
+              o2.clipboardData.clearData(), o2.clipboardData.setData(e.format, t);
+          e.onCopy && (o2.preventDefault(), e.onCopy(o2.clipboardData));
+        }), document.body.appendChild(a), s2.selectNodeContents(a), c2.addRange(s2);
+        var b = document.execCommand("copy");
+        if (!b)
+          throw new Error("copy command was unsuccessful");
+        d2 = true;
+      } catch (o2) {
+        r && console.error("unable to copy using execCommand: ", o2), r && console.warn("trying IE specific stuff");
+        try {
+          window.clipboardData.setData(e.format || "text", t), e.onCopy && e.onCopy(window.clipboardData), d2 = true;
+        } catch (i2) {
+          r && console.error("unable to copy using clipboardData: ", i2), r && console.error("falling back to prompt"), n = $("message" in e ? e.message : U), window.prompt(n, t);
+        }
+      } finally {
+        c2 && (typeof c2.removeRange == "function" ? c2.removeRange(s2) : c2.removeAllRanges()), a && document.body.removeChild(a), l2();
+      }
+      return d2;
+    }
+    y.exports = I;
+  });
+  var g2 = p2(f());
+  var T = p2(f());
+  var { default: A2, ...M } = T;
+  var z = g2.default ?? A2 ?? M;
 
   // deno:https://deno.land/x/timezones@v1.0.0/mod.js
   var timeZones = [
@@ -1628,7 +1744,6 @@
 
   // deno:file:///home/runner/work/timero/timero/utils.ts
   var fuse = new fuse_esm_default(mod_default);
-  var initialTimeZone = randomTimeZone();
   function fuzzyFindTZ(customTZ) {
     const [{ item }] = fuse.search(customTZ);
     return item;
@@ -1643,7 +1758,10 @@
   // deno:file:///home/runner/work/timero/timero/index.ts
   var { children } = document.getElementById("results");
   var input = document.getElementById("time-zone");
-  var timeZone = initialTimeZone;
+  var shareButton = document.getElementById("shareTZ");
+  var randomTZButton = document.getElementById("randomTZ");
+  var tzQuery = new URLSearchParams(window.location.search).get("tz");
+  var timeZone = tzQuery ? fuzzyFindTZ(tzQuery) : randomTimeZone();
   input.value = timeZone.split("/")[1];
   input.addEventListener("input", () => {
     if (!input.value)
@@ -1662,5 +1780,15 @@
       children[index].textContent = data[index];
     }
   }
+  shareButton.onclick = () => {
+    const url = new URLSearchParams(window.location.search);
+    url.set("tz", timeZone);
+    z(`${window.location.href}?${url.toString()}`);
+    alert("Copied to clipboard!");
+  };
+  randomTZButton.onclick = () => {
+    timeZone = randomTimeZone();
+    input.value = timeZone.split("/")[1];
+  };
   setInterval(() => date.setSeconds(date.getSeconds() + 1), 1e3);
 })();

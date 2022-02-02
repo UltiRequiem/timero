@@ -1,18 +1,16 @@
 # Timero
 
-Webapp to see what time is in any timezone.
+> https://ultirequiem.github.io/timero
 
-## Deploy
-
-https://ultirequiem.github.io/timero
+A website to see what time is in any timezone.
 
 ## Characteristic
 
 - Responsive Design
 
-- Uses [Packup](https://packup.deno.dev) as Bundler
+- [Packup](https://packup.deno.dev) as Bundler
 
-- Written in TypeScript
+- TypeScript
 
 - CI and CD
 

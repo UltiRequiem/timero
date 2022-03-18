@@ -1276,7 +1276,7 @@
   }
   var fuse_esm_default = Fuse;
 
-  // deno:https://cdn.esm.sh/v64/toggle-selection@1.0.6/deno/toggle-selection.js
+  // deno:https://cdn.esm.sh/v69/toggle-selection@1.0.6/deno/toggle-selection.js
   var s = Object.create;
   var o = Object.defineProperty;
   var g = Object.getOwnPropertyDescriptor;
@@ -1321,7 +1321,7 @@
   var { default: R, ...E } = C;
   var h = l.default ?? R ?? E;
 
-  // deno:https://cdn.esm.sh/v64/copy-to-clipboard@3.3.1/deno/copy-to-clipboard.js
+  // deno:https://cdn.esm.sh/v69/copy-to-clipboard@3.3.1/deno/copy-to-clipboard.js
   var w = Object.create;
   var u2 = Object.defineProperty;
   var D = Object.getOwnPropertyDescriptor;
@@ -1355,7 +1355,7 @@
       try {
         l2 = R2(), s2 = document.createRange(), c2 = document.getSelection(), a = document.createElement("span"), a.textContent = t, a.style.all = "unset", a.style.position = "fixed", a.style.top = 0, a.style.clip = "rect(0, 0, 0, 0)", a.style.whiteSpace = "pre", a.style.webkitUserSelect = "text", a.style.MozUserSelect = "text", a.style.msUserSelect = "text", a.style.userSelect = "text", a.addEventListener("copy", function(o2) {
           if (o2.stopPropagation(), e.format)
-            if (o2.preventDefault(), typeof o2.clipboardData == "undefined") {
+            if (o2.preventDefault(), typeof o2.clipboardData > "u") {
               r && console.warn("unable to use e.clipboardData"), r && console.warn("trying IE specific stuff"), window.clipboardData.clearData();
               var i2 = m2[e.format] || m2.default;
               window.clipboardData.setData(i2, t);

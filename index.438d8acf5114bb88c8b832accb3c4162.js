@@ -1779,15 +1779,15 @@
       children[index].textContent = data[index];
     }
   }
-  shareButton.onclick = () => {
+  shareButton.addEventListener("click", () => {
     const url = new URLSearchParams(window.location.search);
     url.set("tz", timeZone);
     z(`${window.location.href}?${url.toString()}`);
     alert("Copied to clipboard!");
-  };
-  randomTZButton.onclick = () => {
+  });
+  randomTZButton.addEventListener("click", () => {
     timeZone = randomTimeZone();
     input.value = timeZone.split("/")[1];
-  };
+  });
   setInterval(() => date.setSeconds(date.getSeconds() + 1), 1e3);
 })();

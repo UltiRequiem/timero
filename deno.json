@@ -1,11 +1,13 @@
 {
   "compilerOptions": {
-    "allowJs": true,
-    "lib": [
-      "dom",
-      "esnext",
-      "dom.iterable"
-    ],
-    "strict": true
+    "lib": ["dom", "esnext", "dom.iterable"]
+  },
+
+  "tasks": {
+    "packup": "deno run --allow-env --allow-read --allow-write --allow-net=deno.land https://deno.land/x/packup/ensure_esbuild_wasm.ts",
+    "ci": "deno lint && deno fmt --check",
+    "dev": "deno task packup && deno run -A https://deno.land/x/packup/cli.ts index.html",
+    "build": "deno task packup && deno run -A https://deno.land/x/packup/cli.ts build index.html",
+    "deps": "deno run -A https://deno.land/x/udd/main.ts $(find . -name '*.ts')"
   }
 }

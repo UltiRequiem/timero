@@ -18,7 +18,10 @@ input.addEventListener("input", () => {
 const date = new Proxy(new Date(), {
   get(target, property) {
     updateDOM(target);
-    return property in target ? target[property].bind(target) : undefined;
+    return property in target
+      ? //@ts-ignore error
+        target[property].bind(target)
+      : undefined;
   },
 });
 

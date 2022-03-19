@@ -1,10 +1,10 @@
 import { fuzzyFindTZ, parseDate } from "./utils.ts";
 import { copy, randomTimeZone } from "./deps.ts";
 
-const { children } = <HTMLDivElement>document.getElementById("results")!;
-const input = <HTMLInputElement>document.getElementById("time-zone")!;
-const shareButton = <HTMLButtonElement>document.getElementById("shareTZ");
-const randomTZButton = <HTMLButtonElement>document.getElementById("randomTZ");
+const { children } = <HTMLDivElement> document.getElementById("results")!;
+const input = <HTMLInputElement> document.getElementById("time-zone")!;
+const shareButton = <HTMLButtonElement> document.getElementById("shareTZ");
+const randomTZButton = <HTMLButtonElement> document.getElementById("randomTZ");
 
 const tzQuery = new URLSearchParams(window.location.search).get("tz");
 let timeZone = tzQuery ? fuzzyFindTZ(tzQuery) : randomTimeZone();

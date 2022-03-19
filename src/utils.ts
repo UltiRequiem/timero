@@ -2,7 +2,7 @@ import { Fuse, timeZones } from "./deps.ts";
 
 const fuse = new Fuse(timeZones);
 
-export function fuzzyFindTZ(customTZ: string) {
+export function fuzzyFindTZ(customTZ: string): string {
   const [{ item }] = fuse.search(customTZ);
   return item;
 }

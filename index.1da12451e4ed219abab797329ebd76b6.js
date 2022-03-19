@@ -1276,7 +1276,7 @@
   }
   var fuse_esm_default = Fuse;
 
-  // deno:https://cdn.esm.sh/v69/toggle-selection@1.0.6/deno/toggle-selection.js
+  // deno:https://cdn.esm.sh/v70/toggle-selection@1.0.6/deno/toggle-selection.js
   var s = Object.create;
   var o = Object.defineProperty;
   var g = Object.getOwnPropertyDescriptor;
@@ -1321,7 +1321,7 @@
   var { default: R, ...E } = C;
   var h = l.default ?? R ?? E;
 
-  // deno:https://cdn.esm.sh/v69/copy-to-clipboard@3.3.1/deno/copy-to-clipboard.js
+  // deno:https://cdn.esm.sh/v70/copy-to-clipboard@3.3.1/deno/copy-to-clipboard.js
   var w = Object.create;
   var u2 = Object.defineProperty;
   var D = Object.getOwnPropertyDescriptor;
@@ -1386,7 +1386,7 @@
   var { default: A2, ...M } = T;
   var z = g2.default ?? A2 ?? M;
 
-  // deno:https://deno.land/x/timezones@v1.0.0/mod.js
+  // deno:https://deno.land/x/timezones@v1.1.1/mod.ts
   var timeZones = [
     "Africa/Abidjan",
     "Africa/Accra",
@@ -1740,10 +1740,9 @@
   function randomTimeZone() {
     return timeZones[Math.floor(Math.random() * timeZones.length)];
   }
-  var mod_default = timeZones;
 
   // deno:file:///home/runner/work/timero/timero/utils.ts
-  var fuse = new fuse_esm_default(mod_default);
+  var fuse = new fuse_esm_default(timeZones);
   function fuzzyFindTZ(customTZ) {
     const [{ item }] = fuse.search(customTZ);
     return item;

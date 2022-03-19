@@ -1741,7 +1741,7 @@
     return timeZones[Math.floor(Math.random() * timeZones.length)];
   }
 
-  // deno:file:///home/runner/work/timero/timero/utils.ts
+  // deno:file:///home/runner/work/timero/timero/src/utils.ts
   var fuse = new fuse_esm_default(timeZones);
   function fuzzyFindTZ(customTZ) {
     const [{ item }] = fuse.search(customTZ);
@@ -1754,7 +1754,7 @@
     return [timeZone2, ...dateHourFormatted(date2, timeZone2)];
   }
 
-  // deno:file:///home/runner/work/timero/timero/index.ts
+  // deno:file:///home/runner/work/timero/timero/src/index.ts
   var { children } = document.getElementById("results");
   var input = document.getElementById("time-zone");
   var shareButton = document.getElementById("shareTZ");

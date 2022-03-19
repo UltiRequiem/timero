@@ -1386,7 +1386,7 @@
   var { default: A2, ...M } = T;
   var z = g2.default ?? A2 ?? M;
 
-  // deno:https://deno.land/x/timezones@v1.1.1/mod.ts
+  // deno:https://deno.land/x/timezones@v1.1.2/mod.ts
   var timeZones = [
     "Africa/Abidjan",
     "Africa/Accra",

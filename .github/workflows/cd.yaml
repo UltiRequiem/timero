@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: denoland/setup-deno@v1
       - run: deno task build
-      - run: echo timero.ultirequiem.com/ >> dist/CNAME
+      - run: echo timero.ultirequiem.com >> dist/CNAME
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:

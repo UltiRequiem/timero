@@ -1276,7 +1276,7 @@
   }
   var fuse_esm_default = Fuse;
 
-  // deno:https://cdn.esm.sh/v70/toggle-selection@1.0.6/deno/toggle-selection.js
+  // deno:https://cdn.esm.sh/v71/toggle-selection@1.0.6/deno/toggle-selection.js
   var s = Object.create;
   var o = Object.defineProperty;
   var g = Object.getOwnPropertyDescriptor;
@@ -1321,7 +1321,7 @@
   var { default: R, ...E } = C;
   var h = l.default ?? R ?? E;
 
-  // deno:https://cdn.esm.sh/v70/copy-to-clipboard@3.3.1/deno/copy-to-clipboard.js
+  // deno:https://cdn.esm.sh/v71/copy-to-clipboard@3.3.1/deno/copy-to-clipboard.js
   var w = Object.create;
   var u2 = Object.defineProperty;
   var D = Object.getOwnPropertyDescriptor;

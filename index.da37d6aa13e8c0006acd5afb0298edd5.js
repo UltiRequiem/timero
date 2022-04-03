@@ -1276,7 +1276,7 @@
   }
   var fuse_esm_default = Fuse;
 
-  // deno:https://cdn.esm.sh/v71/toggle-selection@1.0.6/deno/toggle-selection.js
+  // deno:https://cdn.esm.sh/v74/toggle-selection@1.0.6/deno/toggle-selection.js
   var s = Object.create;
   var o = Object.defineProperty;
   var g = Object.getOwnPropertyDescriptor;
@@ -1321,7 +1321,7 @@
   var { default: R, ...E } = C;
   var h = l.default ?? R ?? E;
 
-  // deno:https://cdn.esm.sh/v71/copy-to-clipboard@3.3.1/deno/copy-to-clipboard.js
+  // deno:https://cdn.esm.sh/v74/copy-to-clipboard@3.3.1/deno/copy-to-clipboard.js
   var w = Object.create;
   var u2 = Object.defineProperty;
   var D = Object.getOwnPropertyDescriptor;
@@ -1386,7 +1386,15 @@
   var { default: A2, ...M } = T;
   var z = g2.default ?? A2 ?? M;
 
-  // deno:https://deno.land/x/timezones@v1.1.2/mod.ts
+  // deno:https://deno.land/x/random_item@1.1.1/mod.ts
+  function randomItem(array) {
+    if (!Array.isArray(array)) {
+      throw new TypeError("Expected an array.");
+    }
+    return array[Math.floor(Math.random() * array.length)];
+  }
+
+  // deno:https://deno.land/x/timezones@v1.2.0/mod.ts
   var timeZones = [
     "Africa/Abidjan",
     "Africa/Accra",
@@ -1738,7 +1746,7 @@
     "Pacific/Wallis"
   ];
   function randomTimeZone() {
-    return timeZones[Math.floor(Math.random() * timeZones.length)];
+    return randomItem(timeZones);
   }
 
   // deno:file:///home/runner/work/timero/timero/src/utils.ts

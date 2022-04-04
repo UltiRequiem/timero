@@ -1394,7 +1394,7 @@
     return array[Math.floor(Math.random() * array.length)];
   }
 
-  // deno:https://deno.land/x/timezones@v1.2.0/mod.ts
+  // deno:https://deno.land/x/timezones@v1.2.2/mod.ts
   var timeZones = [
     "Africa/Abidjan",
     "Africa/Accra",

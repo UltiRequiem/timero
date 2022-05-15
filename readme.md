@@ -1,8 +1,12 @@
 # Timero
 
-> https://timero.ultirequiem.com
-
 See what time is in any timezone.
+
+## Deploy
+
+### GH Pages 🐱
+
+https://timero.ultirequiem.com
 
 ## Support
 

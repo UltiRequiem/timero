@@ -145,7 +145,7 @@
     includeScore: false,
     keys: [],
     shouldSort: true,
-    sortFn: (a, b) => a.score === b.score ? a.idx < b.idx ? -1 : 1 : a.score < b.score ? -1 : 1
+    sortFn: (a, b2) => a.score === b2.score ? a.idx < b2.idx ? -1 : 1 : a.score < b2.score ? -1 : 1
   };
   var FuzzyOptions = {
     location: 0,
@@ -272,9 +272,9 @@
               };
               subRecords.push(subRecord);
             } else if (isArray(value2)) {
-              value2.forEach((item, k2) => {
+              value2.forEach((item, k) => {
                 stack.push({
-                  nestedArrIndex: k2,
+                  nestedArrIndex: k,
                   value: item
                 });
               });
@@ -1276,30 +1276,29 @@
   }
   var fuse_esm_default = Fuse;
 
-  // deno:https://cdn.esm.sh/v74/toggle-selection@1.0.6/deno/toggle-selection.js
+  // deno:https://cdn.esm.sh/v78/toggle-selection@1.0.6/deno/toggle-selection.js
   var s = Object.create;
-  var o = Object.defineProperty;
+  var u = Object.defineProperty;
   var g = Object.getOwnPropertyDescriptor;
   var i = Object.getOwnPropertyNames;
   var m = Object.getPrototypeOf;
   var d = Object.prototype.hasOwnProperty;
-  var p = (e) => o(e, "__esModule", { value: true });
-  var v = (e, t) => () => (t || e((t = { exports: {} }).exports, t), t.exports);
-  var A = (e, t, r, n) => {
+  var p = (e, t) => () => (t || e((t = { exports: {} }).exports, t), t.exports);
+  var v = (e, t, a, r) => {
     if (t && typeof t == "object" || typeof t == "function")
-      for (let a of i(t))
-        !d.call(e, a) && (r || a !== "default") && o(e, a, { get: () => t[a], enumerable: !(n = g(t, a)) || n.enumerable });
+      for (let n of i(t))
+        !d.call(e, n) && n !== a && u(e, n, { get: () => t[n], enumerable: !(r = g(t, n)) || r.enumerable });
     return e;
   };
-  var c = (e, t) => A(p(o(e != null ? s(m(e)) : {}, "default", !t && e && e.__esModule ? { get: () => e.default, enumerable: true } : { value: e, enumerable: true })), e);
-  var u = v((b, f2) => {
+  var c = (e, t, a) => (a = e != null ? s(m(e)) : {}, v(t || !e || !e.__esModule ? u(a, "default", { value: e, enumerable: true }) : a, e));
+  var o = p(($, f2) => {
     f2.exports = function() {
       var e = document.getSelection();
       if (!e.rangeCount)
         return function() {
         };
-      for (var t = document.activeElement, r = [], n = 0; n < e.rangeCount; n++)
-        r.push(e.getRangeAt(n));
+      for (var t = document.activeElement, a = [], r = 0; r < e.rangeCount; r++)
+        a.push(e.getRangeAt(r));
       switch (t.tagName.toUpperCase()) {
         case "INPUT":
         case "TEXTAREA":
@@ -1310,50 +1309,49 @@
           break;
       }
       return e.removeAllRanges(), function() {
-        e.type === "Caret" && e.removeAllRanges(), e.rangeCount || r.forEach(function(a) {
-          e.addRange(a);
+        e.type === "Caret" && e.removeAllRanges(), e.rangeCount || a.forEach(function(n) {
+          e.addRange(n);
         }), t && t.focus();
       };
     };
   });
-  var l = c(u());
-  var C = c(u());
-  var { default: R, ...E } = C;
-  var h = l.default ?? R ?? E;
+  var l = c(o());
+  var A = c(o());
+  var { default: C, ...R } = A;
+  var b = l.default ?? C ?? R;
 
-  // deno:https://cdn.esm.sh/v74/copy-to-clipboard@3.3.1/deno/copy-to-clipboard.js
+  // deno:https://cdn.esm.sh/v78/copy-to-clipboard@3.3.1/deno/copy-to-clipboard.js
   var w = Object.create;
-  var u2 = Object.defineProperty;
+  var f = Object.defineProperty;
   var D = Object.getOwnPropertyDescriptor;
   var v2 = Object.getOwnPropertyNames;
   var C2 = Object.getPrototypeOf;
   var x = Object.prototype.hasOwnProperty;
-  var h2 = (t) => u2(t, "__esModule", { value: true });
-  var E2 = ((t) => typeof __require != "undefined" ? __require : typeof Proxy != "undefined" ? new Proxy(t, { get: (e, r) => (typeof __require != "undefined" ? __require : e)[r] }) : t)(function(t) {
+  var h = ((t) => typeof __require != "undefined" ? __require : typeof Proxy != "undefined" ? new Proxy(t, { get: (e, r) => (typeof __require != "undefined" ? __require : e)[r] }) : t)(function(t) {
     if (typeof __require != "undefined")
       return __require.apply(this, arguments);
     throw new Error('Dynamic require of "' + t + '" is not supported');
   });
-  var S = (t, e) => () => (e || t((e = { exports: {} }).exports, e), e.exports);
-  var k = (t, e, r, n) => {
+  var E = (t, e) => () => (e || t((e = { exports: {} }).exports, e), e.exports);
+  var S = (t, e, r, n) => {
     if (e && typeof e == "object" || typeof e == "function")
       for (let l2 of v2(e))
-        !x.call(t, l2) && (r || l2 !== "default") && u2(t, l2, { get: () => e[l2], enumerable: !(n = D(e, l2)) || n.enumerable });
+        !x.call(t, l2) && l2 !== r && f(t, l2, { get: () => e[l2], enumerable: !(n = D(e, l2)) || n.enumerable });
     return t;
   };
-  var p2 = (t, e) => k(h2(u2(t != null ? w(C2(t)) : {}, "default", !e && t && t.__esModule ? { get: () => t.default, enumerable: true } : { value: t, enumerable: true })), t);
-  var f = S((q, y) => {
+  var p2 = (t, e, r) => (r = t != null ? w(C2(t)) : {}, S(e || !t || !t.__esModule ? f(r, "default", { value: t, enumerable: true }) : r, t));
+  var u2 = E((P, y) => {
     "use strict";
-    var R2 = h, m2 = { "text/plain": "Text", "text/html": "Url", default: "Text" }, U = "Copy to clipboard: #{key}, Enter";
-    function $(t) {
+    var k = b, m2 = { "text/plain": "Text", "text/html": "Url", default: "Text" }, R2 = "Copy to clipboard: #{key}, Enter";
+    function U(t) {
       var e = (/mac os x/i.test(navigator.userAgent) ? "\u2318" : "Ctrl") + "+C";
       return t.replace(/#{\s*key\s*}/g, e);
     }
-    function I(t, e) {
+    function $(t, e) {
       var r, n, l2, s2, c2, a, d2 = false;
       e || (e = {}), r = e.debug || false;
       try {
-        l2 = R2(), s2 = document.createRange(), c2 = document.getSelection(), a = document.createElement("span"), a.textContent = t, a.style.all = "unset", a.style.position = "fixed", a.style.top = 0, a.style.clip = "rect(0, 0, 0, 0)", a.style.whiteSpace = "pre", a.style.webkitUserSelect = "text", a.style.MozUserSelect = "text", a.style.msUserSelect = "text", a.style.userSelect = "text", a.addEventListener("copy", function(o2) {
+        l2 = k(), s2 = document.createRange(), c2 = document.getSelection(), a = document.createElement("span"), a.textContent = t, a.style.all = "unset", a.style.position = "fixed", a.style.top = 0, a.style.clip = "rect(0, 0, 0, 0)", a.style.whiteSpace = "pre", a.style.webkitUserSelect = "text", a.style.MozUserSelect = "text", a.style.msUserSelect = "text", a.style.userSelect = "text", a.addEventListener("copy", function(o2) {
           if (o2.stopPropagation(), e.format)
             if (o2.preventDefault(), typeof o2.clipboardData > "u") {
               r && console.warn("unable to use e.clipboardData"), r && console.warn("trying IE specific stuff"), window.clipboardData.clearData();
@@ -1363,8 +1361,8 @@
               o2.clipboardData.clearData(), o2.clipboardData.setData(e.format, t);
           e.onCopy && (o2.preventDefault(), e.onCopy(o2.clipboardData));
         }), document.body.appendChild(a), s2.selectNodeContents(a), c2.addRange(s2);
-        var b = document.execCommand("copy");
-        if (!b)
+        var b2 = document.execCommand("copy");
+        if (!b2)
           throw new Error("copy command was unsuccessful");
         d2 = true;
       } catch (o2) {
@@ -1372,21 +1370,21 @@
         try {
           window.clipboardData.setData(e.format || "text", t), e.onCopy && e.onCopy(window.clipboardData), d2 = true;
         } catch (i2) {
-          r && console.error("unable to copy using clipboardData: ", i2), r && console.error("falling back to prompt"), n = $("message" in e ? e.message : U), window.prompt(n, t);
+          r && console.error("unable to copy using clipboardData: ", i2), r && console.error("falling back to prompt"), n = U("message" in e ? e.message : R2), window.prompt(n, t);
         }
       } finally {
         c2 && (typeof c2.removeRange == "function" ? c2.removeRange(s2) : c2.removeAllRanges()), a && document.body.removeChild(a), l2();
       }
       return d2;
     }
-    y.exports = I;
+    y.exports = $;
   });
-  var g2 = p2(f());
-  var T = p2(f());
-  var { default: A2, ...M } = T;
-  var z = g2.default ?? A2 ?? M;
+  var g2 = p2(u2());
+  var I = p2(u2());
+  var { default: T, ...A2 } = I;
+  var q = g2.default ?? T ?? A2;
 
-  // deno:https://deno.land/x/random_item@1.1.1/mod.ts
+  // deno:https://deno.land/x/random_item@v1.2.0/mod.ts
   function randomItem(array) {
     if (!Array.isArray(array)) {
       throw new TypeError("Expected an array.");
@@ -1394,7 +1392,7 @@
     return array[Math.floor(Math.random() * array.length)];
   }
 
-  // deno:https://deno.land/x/timezones@v1.2.2/mod.ts
+  // deno:https://deno.land/x/timezones@v1.3.0/mod.ts
   var timeZones = [
     "Africa/Abidjan",
     "Africa/Accra",
@@ -1790,7 +1788,7 @@
   shareButton.addEventListener("click", () => {
     const url = new URLSearchParams(window.location.search);
     url.set("tz", timeZone);
-    z(`${window.location.href}?${url.toString()}`);
+    q(`${window.location.href}?${url.toString()}`);
     alert("Copied to clipboard!");
   });
   randomTZButton.addEventListener("click", () => {

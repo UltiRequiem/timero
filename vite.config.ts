@@ -1,8 +1,8 @@
 import { defineConfig } from "vitest/config";
 
-// served from its own domain (see public/CNAME), so assets live at the root
+// served from https://ulti.js.org/timero/ (a project page), so asset URLs must be relative
 export default defineConfig({
-  base: "/",
+  base: "./",
   test: {
     environment: "node",
     include: ["src/**/*.test.ts"],

@@ -1,24 +1,22 @@
 # Timero
 
-See what time is in any timezone.
+See what time it is in any time zone.
 
-## Deploy
+**Live: https://timero.ultirequiem.com**
 
-### GH Pages 🐱
+Type a city or a zone, press _Random Time Zone_, browse the full list, or share a link with `?tz=Tokyo`.
 
-https://timero.ultirequiem.com
+## Development
 
-## Support
+```sh
+pnpm install
+pnpm dev      # local server with hot reload
+pnpm test     # unit tests for the time zone helpers
+pnpm build    # production build into dist/
+```
 
-Open an Issue, I will check it a soon as possible 👀
-
-If you want to hurry me up a bit
-[send me a tweet](https://twitter.com/UltiRequiem) 😆
-
-Consider [supporting me on Patreon](https://patreon.com/UltiRequiem) if you like
-my work 🙏
-
-Don't forget to start the repo ⭐
+Built with [Vite](https://vite.dev), TypeScript and [`@ultirequiem/timezones`](https://www.npmjs.com/package/@ultirequiem/timezones).
+Every push to `main` is built and deployed to GitHub Pages; the domain comes from `public/CNAME`.
 
 ## Licence
 

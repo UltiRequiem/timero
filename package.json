@@ -1,0 +1,30 @@
+{
+  "name": "timero",
+  "version": "0.0.0-development",
+  "private": true,
+  "type": "module",
+  "description": "See what time it is in any time zone.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "lint": "tsc --noEmit && prettier --check 'src/**/*.ts' index.html",
+    "fmt": "prettier --write 'src/**/*.ts' index.html",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage"
+  },
+  "dependencies": {
+    "@ultirequiem/timezones": "^1.3.0",
+    "copy-to-clipboard": "^4.0.2",
+    "fuse.js": "^7.5.0"
+  },
+  "devDependencies": {
+    "@vitest/coverage-v8": "^5.0.5",
+    "prettier": "^3.9.10",
+    "sass": "^1.106.1",
+    "typescript": "^6.0.3",
+    "vite": "^8.3.5",
+    "vitest": "^5.0.5"
+  },
+  "packageManager": "pnpm@12.6.0"
+}

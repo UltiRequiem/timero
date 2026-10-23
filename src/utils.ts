@@ -1,4 +1,5 @@
-import { Fuse, timeZones } from "./deps.ts";
+import Fuse from "fuse.js";
+import { timeZones } from "@ultirequiem/timezones";
 
 const fuse = new Fuse(timeZones);
 

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -9,15 +9,13 @@
       href="https://fonts.googleapis.com/css?family=Roboto"
     />
 
-    <link rel="stylesheet" href="./main.scss" />
-
     <meta name="description" content="What time it was X hours ago?" />
     <meta name="keywords" content="Timezones, See the time in other Timezone" />
     <meta name="author" content="Eliaz Bobadilla" />
 
-    <link rel="icon" href="./icon.svg" />
+    <link rel="icon" href="/icon.svg" />
 
-    <script defer src="./index.ts" type="module"></script>
+    <script type="module" src="/src/index.ts"></script>
     <title>Timero</title>
   </head>
   <body>
@@ -41,11 +39,7 @@
         <div class="buttons">
           <button id="shareTZ">Share Time Zone</button>
           <button id="randomTZ">Random Time Zone</button>
-          <button
-            id="toggleMenu"
-            aria-expanded="false"
-            aria-controls="tz-menu"
-          >
+          <button id="toggleMenu" aria-expanded="false" aria-controls="tz-menu">
             All Time Zones
           </button>
         </div>

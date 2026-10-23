@@ -1,14 +1,16 @@
-import { filterTZ, fuzzyFindTZ, parseDate, tzLabel } from "./utils.ts";
-import { copy, randomTimeZone } from "./deps.ts";
+import "./main.scss";
+import copy from "copy-to-clipboard";
+import { randomTimeZone } from "@ultirequiem/timezones";
+import { filterTZ, fuzzyFindTZ, parseDate, tzLabel } from "./utils";
 
-const { children } = <HTMLDivElement> document.getElementById("results")!;
-const input = <HTMLInputElement> document.getElementById("time-zone")!;
-const shareButton = <HTMLButtonElement> document.getElementById("shareTZ");
-const randomTZButton = <HTMLButtonElement> document.getElementById("randomTZ");
-const menuButton = <HTMLButtonElement> document.getElementById("toggleMenu");
-const menu = <HTMLElement> document.getElementById("tz-menu");
-const menuFilter = <HTMLInputElement> document.getElementById("tz-filter");
-const menuList = <HTMLUListElement> document.getElementById("tz-list");
+const { children } = <HTMLDivElement>document.getElementById("results")!;
+const input = <HTMLInputElement>document.getElementById("time-zone")!;
+const shareButton = <HTMLButtonElement>document.getElementById("shareTZ");
+const randomTZButton = <HTMLButtonElement>document.getElementById("randomTZ");
+const menuButton = <HTMLButtonElement>document.getElementById("toggleMenu");
+const menu = <HTMLElement>document.getElementById("tz-menu");
+const menuFilter = <HTMLInputElement>document.getElementById("tz-filter");
+const menuList = <HTMLUListElement>document.getElementById("tz-list");
 
 const tzQuery = new URLSearchParams(window.location.search).get("tz");
 let timeZone = tzQuery ? fuzzyFindTZ(tzQuery) : randomTimeZone();
@@ -24,8 +26,8 @@ const date = new Proxy(new Date(), {
   get(target, property) {
     updateDOM(target);
     return property in target
-      //@ts-ignore error
-      ? target[property].bind(target)
+      ? //@ts-ignore error
+        target[property].bind(target)
       : undefined;
   },
 });
@@ -98,7 +100,7 @@ menuButton.addEventListener("click", () => {
 menuFilter.addEventListener("input", renderMenu);
 
 menuList.addEventListener("click", (event) => {
-  const button = (<HTMLElement> event.target).closest("button");
+  const button = (<HTMLElement>event.target).closest("button");
   if (button?.dataset.tz) setTimeZone(button.dataset.tz);
 });
 

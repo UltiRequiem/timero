@@ -41,7 +41,24 @@
         <div class="buttons">
           <button id="shareTZ">Share Time Zone</button>
           <button id="randomTZ">Random Time Zone</button>
+          <button
+            id="toggleMenu"
+            aria-expanded="false"
+            aria-controls="tz-menu"
+          >
+            All Time Zones
+          </button>
         </div>
+
+        <nav id="tz-menu" aria-label="All time zones" hidden>
+          <input
+            id="tz-filter"
+            type="search"
+            placeholder="Filter time zones..."
+            aria-label="Filter time zones"
+          />
+          <ul id="tz-list"></ul>
+        </nav>
       </main>
 
       <footer>

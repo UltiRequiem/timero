@@ -167,8 +167,8 @@ importers:
   .:
     dependencies:
       '@ultirequiem/timezones':
-        specifier: ^1.3.0
-        version: 1.3.0
+        specifier: ^2.0.1
+        version: 2.0.1
       copy-to-clipboard:
         specifier: ^4.0.2
         version: 4.0.2
@@ -223,9 +223,6 @@ packages:
 
   '@deno/shim-deno@0.4.3':
     resolution: {integrity: sha512-m5iXsq3Nvv1aJ1xwUQGnXXOztZ5UUF9dZje3l6EbX41zE5+MioK1NN+2+C3nlWWs9PvSFam4EbZVG3JUbLCeDg==}
-
-  '@deno/shim-prompts@0.1.1':
-    resolution: {integrity: sha512-E3tqmVdIhrFvyxUTDUA0lta2VHsDBH6JX48XMpveBoTtO+Js2cwfrYId7QhCkA7+9DEc96Eof7nWLiKwxxYmFA==}
 
   '@jridgewell/resolve-uri@3.1.2':
     resolution: {integrity: sha512-bRISgCIjP20/tbWSPWMEi54QVPRZExkuD9lJL+UIxUKtwVJA8wW1Trb1jMs1RFXo1CBTNZ/5hpC9QvmKWdopKw==}
@@ -550,9 +547,13 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@ultirequiem/timezones@1.3.0':
-    resolution: {integrity: sha512-Zzy+kub0Bx3lZpZb24eK1ZAW/xXL64XPY/YSc3FzIkjcNMsIeXK9MkOkLbQBG40R/a5zxuPEHp9vo4iFOzzObA==}
+  '@ultirequiem/random-item@1.2.0':
+    resolution: {integrity: sha512-5JIJELzg0PeMcCtEzgXZyIj93/M0uj2XhxYWQCFM3beJBJd+1se+n5Y4YzjpU2oOlfjMuNgTCL26fCIfq5jECQ==}
     hasBin: true
+
+  '@ultirequiem/timezones@2.0.1':
+    resolution: {integrity: sha512-PJv+fqBM4fb/bXONR7jXdCXAPHPKzo4zA5mpEd2/8MHuc9CrFNOXRMWGaU+wpt7rRD+1g7Tbf2lKu53VHRPSng==}
+    engines: {node: '>=20'}
 
   '@vitest/coverage-v8@5.0.5':
     resolution: {integrity: sha512-4KpkGdIrSqBihx/JyP/e+S+IKB98etg1XDQiLAxksLfcShnwi1VReGeOT9NI43hLHbknosKp/1CCLn9Zgcs8mg==}
@@ -920,8 +921,6 @@ snapshots:
       '@deno/shim-deno-test': 0.3.3
       which: 2.0.2
 
-  '@deno/shim-prompts@0.1.1': {}
-
   '@jridgewell/resolve-uri@3.1.2': {}
 
   '@jridgewell/sourcemap-codec@1.6.0': {}
@@ -1106,10 +1105,13 @@ snapshots:
   '@typescript/typescript-win32-x64@7.0.2':
     optional: true
 
-  '@ultirequiem/timezones@1.3.0':
+  '@ultirequiem/random-item@1.2.0':
     dependencies:
       '@deno/shim-deno': 0.4.3
-      '@deno/shim-prompts': 0.1.1
+
+  '@ultirequiem/timezones@2.0.1':
+    dependencies:
+      '@ultirequiem/random-item': 1.2.0
 
   '@vitest/coverage-v8@5.0.5(vitest@5.0.5)':
     dependencies:

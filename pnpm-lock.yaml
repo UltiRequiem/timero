@@ -167,8 +167,8 @@ importers:
   .:
     dependencies:
       '@ultirequiem/timezones':
-        specifier: ^2.0.1
-        version: 2.0.1
+        specifier: ^2.0.2
+        version: 2.0.2
       copy-to-clipboard:
         specifier: ^4.0.2
         version: 4.0.2
@@ -217,12 +217,6 @@ packages:
   '@bcoe/v8-coverage@1.0.2':
     resolution: {integrity: sha512-6zABk/ECA/QYSCQ1NGiVwwbQerUCZ+TQbp64Q3AgmfNvurHH0j8TtXa1qbShXA6qqkpAj4V5W8pP6mLe1mcMqA==}
     engines: {node: '>=18'}
-
-  '@deno/shim-deno-test@0.3.3':
-    resolution: {integrity: sha512-Ge0Tnl7zZY0VvEfgsyLhjid8DzI1d0La0dgm+3m0/A8gZXgp5xwlyIyue5e4SCUuVB/3AH/0lun9LcJhhTwmbg==}
-
-  '@deno/shim-deno@0.4.3':
-    resolution: {integrity: sha512-m5iXsq3Nvv1aJ1xwUQGnXXOztZ5UUF9dZje3l6EbX41zE5+MioK1NN+2+C3nlWWs9PvSFam4EbZVG3JUbLCeDg==}
 
   '@jridgewell/resolve-uri@3.1.2':
     resolution: {integrity: sha512-bRISgCIjP20/tbWSPWMEi54QVPRZExkuD9lJL+UIxUKtwVJA8wW1Trb1jMs1RFXo1CBTNZ/5hpC9QvmKWdopKw==}
@@ -547,12 +541,23 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@ultirequiem/random-item@1.2.0':
-    resolution: {integrity: sha512-5JIJELzg0PeMcCtEzgXZyIj93/M0uj2XhxYWQCFM3beJBJd+1se+n5Y4YzjpU2oOlfjMuNgTCL26fCIfq5jECQ==}
-    hasBin: true
+  '@ultirequiem/random-item@2.0.2':
+    resolution: {integrity: sha512-0TUMzaHX5Bu3RErO7M8Q/xbLV8zxQC2yIb0xNpmvdSihB7HVFL4Sg8knBiK9JDyxrhxk+uFXQEBoszMhQjXAKw==}
+    engines: {node: '>=20'}
 
-  '@ultirequiem/timezones@2.0.1':
-    resolution: {integrity: sha512-PJv+fqBM4fb/bXONR7jXdCXAPHPKzo4zA5mpEd2/8MHuc9CrFNOXRMWGaU+wpt7rRD+1g7Tbf2lKu53VHRPSng==}
+  '@ultirequiem/random-number@3.0.2':
+    resolution: {integrity: sha512-E4+DPjDDXv/AjGHLd1k9ndKX2MdD6hHB5mUMV1aZctreoszzIeMCI+cGrIbHgJjdIw8wOVFa3Iuu8ysaky2NHg==}
+    engines: {node: '>=20'}
+
+  '@ultirequiem/stable-fn@1.0.2':
+    resolution: {integrity: sha512-yF6TejbgMutlL1FczJo2VrE79N5nuSdyT384zdutf76IeNMAXE0tfQzhONe1fFRnvnq+qZSNYlYB+b6SvH8tNw==}
+
+  '@ultirequiem/stable-fn@2.0.2':
+    resolution: {integrity: sha512-NB0xjblgmJ6xakkuwdbXTzW2243s/sFW/q9ID9iMSreYp0bhfTMLpg3rbi57CATWG7NnS1nM0UO8PzHEiJ4xcw==}
+    engines: {node: '>=20'}
+
+  '@ultirequiem/timezones@2.0.2':
+    resolution: {integrity: sha512-cvyMEe64G4IUIrY6YoWB5q0IOvl+UinOWagjGNmqblxkVrkCu5mZ78TnDEMqvFl+o8i+WlzqmhBV+U7gJfaK9g==}
     engines: {node: '>=20'}
 
   '@vitest/coverage-v8@5.0.5':
@@ -646,9 +651,6 @@ packages:
   is-glob@4.0.3:
     resolution: {integrity: sha512-xelSayHH36ZgE7ZWhli7pW34hNbNl8Ojv5KVmkJD4hBdD3th8Tfk9vYasLM+mXWOZhFkgZfxhLSnrwRr4elSSg==}
     engines: {node: '>=0.10.0'}
-
-  isexe@2.0.0:
-    resolution: {integrity: sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==}
 
   js-tokens@10.0.0:
     resolution: {integrity: sha512-lM/UBzQmfJRo9ABXbPWemivdCW8V2G8FHaHdypQaIy523snUjog0W71ayWXTjiR+ixeMyVHN2XcpnTd/liPg/Q==}
@@ -887,11 +889,6 @@ packages:
       jsdom:
         optional: true
 
-  which@2.0.2:
-    resolution: {integrity: sha512-BLI3Tl1TW3Pvl70l3yq3Y64i+awpwXqsGBYWkkqMtnbXgrMD+yj7rhW0kuEDxzJaYXGjEW5ogapKNMEKNMjibA==}
-    engines: {node: '>= 8'}
-    hasBin: true
-
   why-is-node-running@3.2.1:
     resolution: {integrity: sha512-Tb2FUhB4vUsGQlfSquQLYkApkuPAFQXGFzxWKHHumVz2dK+X1RUm/HnID4+TfIGYJ1kTcwOaCk/buYCEJr6YjQ==}
     engines: {node: '>=20.11'}
@@ -913,13 +910,6 @@ snapshots:
       '@babel/helper-validator-identifier': 7.29.7
 
   '@bcoe/v8-coverage@1.0.2': {}
-
-  '@deno/shim-deno-test@0.3.3': {}
-
-  '@deno/shim-deno@0.4.3':
-    dependencies:
-      '@deno/shim-deno-test': 0.3.3
-      which: 2.0.2
 
   '@jridgewell/resolve-uri@3.1.2': {}
 
@@ -1105,13 +1095,22 @@ snapshots:
   '@typescript/typescript-win32-x64@7.0.2':
     optional: true
 
-  '@ultirequiem/random-item@1.2.0':
+  '@ultirequiem/random-item@2.0.2':
     dependencies:
-      '@deno/shim-deno': 0.4.3
+      '@ultirequiem/random-number': 3.0.2
+      '@ultirequiem/stable-fn': 2.0.2
 
-  '@ultirequiem/timezones@2.0.1':
+  '@ultirequiem/random-number@3.0.2': {}
+
+  '@ultirequiem/stable-fn@1.0.2': {}
+
+  '@ultirequiem/stable-fn@2.0.2':
     dependencies:
-      '@ultirequiem/random-item': 1.2.0
+      '@ultirequiem/stable-fn': 1.0.2
+
+  '@ultirequiem/timezones@2.0.2':
+    dependencies:
+      '@ultirequiem/random-item': 2.0.2
 
   '@vitest/coverage-v8@5.0.5(vitest@5.0.5)':
     dependencies:
@@ -1186,8 +1185,6 @@ snapshots:
     dependencies:
       is-extglob: 2.1.1
     optional: true
-
-  isexe@2.0.0: {}
 
   js-tokens@10.0.0: {}
 
@@ -1369,9 +1366,5 @@ snapshots:
       '@vitest/coverage-v8': 5.0.5(vitest@5.0.5)
     transitivePeerDependencies:
       - msw
-
-  which@2.0.2:
-    dependencies:
-      isexe: 2.0.0
 
   why-is-node-running@3.2.1: {}

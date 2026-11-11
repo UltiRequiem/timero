@@ -167,8 +167,8 @@ importers:
   .:
     dependencies:
       '@ultirequiem/timezones':
-        specifier: ^2.0.2
-        version: 2.0.2
+        specifier: ^2.0.3
+        version: 2.0.3
       copy-to-clipboard:
         specifier: ^4.0.2
         version: 4.0.2
@@ -556,8 +556,8 @@ packages:
     resolution: {integrity: sha512-NB0xjblgmJ6xakkuwdbXTzW2243s/sFW/q9ID9iMSreYp0bhfTMLpg3rbi57CATWG7NnS1nM0UO8PzHEiJ4xcw==}
     engines: {node: '>=20'}
 
-  '@ultirequiem/timezones@2.0.2':
-    resolution: {integrity: sha512-cvyMEe64G4IUIrY6YoWB5q0IOvl+UinOWagjGNmqblxkVrkCu5mZ78TnDEMqvFl+o8i+WlzqmhBV+U7gJfaK9g==}
+  '@ultirequiem/timezones@2.0.3':
+    resolution: {integrity: sha512-pxmv754RcGojJRQq+xPiBWaUl7+QY3v7QhAmqzKPemuJJIxAeqH48xiBAq61/pC+IpkAXNUaMoSk9n3fpXWkqQ==}
     engines: {node: '>=20'}
 
   '@vitest/coverage-v8@5.0.5':
@@ -1108,7 +1108,7 @@ snapshots:
     dependencies:
       '@ultirequiem/stable-fn': 1.0.2
 
-  '@ultirequiem/timezones@2.0.2':
+  '@ultirequiem/timezones@2.0.3':
     dependencies:
       '@ultirequiem/random-item': 2.0.2
 

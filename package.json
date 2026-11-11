@@ -14,7 +14,7 @@
     "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
-    "@ultirequiem/timezones": "^2.0.2",
+    "@ultirequiem/timezones": "^2.0.3",
     "copy-to-clipboard": "^4.0.2",
     "fuse.js": "^7.5.0"
   },
